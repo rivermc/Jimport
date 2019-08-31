@@ -50,8 +50,8 @@ while (($data = fgetcsv($handle, ';')) !== FALSE) {
 	$table_asset_id = intval($assets_rows[0][0]) + 1;
 	$table_id = intval($id_rows[0][0]);
 	$table_metadata = '{"robots":"","author":"","rights":"","xreference":""}';
-	$table_introtext = $table_title;
-	$table_fulltext = $table_title;
+	$table_introtext = $data[5];
+	$table_fulltext = $data[6];
 
 
 	//Asset table
@@ -81,6 +81,8 @@ while (($data = fgetcsv($handle, ';')) !== FALSE) {
 	echo '<br> Item Price: '. $data[4];
 	echo '<br> Item Images: '. $data[3];
 	echo '<br> Item Alias: '. $table_alias;
+	echo '<br> Item Introtext: '. $table_introtext;
+	echo '<br> Item Fulltext: '. $table_fulltext;
 	echo '<br> DB Item ID: '. $table_id;
 
 
@@ -88,7 +90,7 @@ while (($data = fgetcsv($handle, ';')) !== FALSE) {
 	if ($table_id != '') {
 		echo '<br> --------------------';
 		echo '<br> Update content table';
-		$content_sql = "UPDATE `u0156984_cement`.`str_content` SET title='$table_title', catid='$table_category', images='$table_images', $introtext='$table_introtext', fulltext='$table_fulltext' WHERE id='$table_id'";	
+		$content_sql = "UPDATE `u0156984_cement`.`str_content` SET title='$table_title', introtext='$table_introtext', catid='$table_category', images='$table_images' WHERE id='$table_id'";	
 	}
 	else {
 		echo '<br> --------------------';
