@@ -90,7 +90,7 @@ while (($data = fgetcsv($handle, ';')) !== FALSE) {
 	if ($table_id != '') {
 		echo '<br> --------------------';
 		echo '<br> Update content table';
-		$content_sql = "UPDATE `u0156984_cement`.`str_content` SET title='$table_title', introtext='$table_introtext', catid='$table_category', images='$table_images' WHERE id='$table_id'";	
+		$content_sql = "UPDATE `u0156984_cement`.`str_content` SET `title`='$table_title', `introtext`='$table_introtext', `fulltext`='$table_fulltext', `catid`='$table_category', `images`='$table_images' WHERE id='$table_id'";	
 	}
 	else {
 		echo '<br> --------------------';
